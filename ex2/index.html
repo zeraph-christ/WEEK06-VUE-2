@@ -21,9 +21,8 @@
                 </header>
                 <section class="modal-card-body">
                     <p class="has-background-info-light p-2">นี่คือ Shop ของนักศึกษาที่ทำไว้เมื่อสัปดาห์ที่แล้ว
-                        โดยสามารถแก้ไข vue ที่อยู่ใน
+                        โดยสามารถแก้ไข Vue Instance ที่อยู่ใน
                         <code>&lt;script&gt;</code> ที่อยู่ส่วนล่างของ <code>index.html</code> ได้เลย
-                        จะได้ไม่สับสนเวลาสลับไฟล์
                     </p>
                     <p class="my-4"><b>ข้อ 1 </b> สร้าง Method ที่ชื่อว่า <code>addToCart()</code>
                         เพื่อใช้แทนการเพิ่มสินค้าลงตะกร้าแบบเดิม โดยเมื่อกดเพิ่มสินค้าลงไปในตะกร้า
@@ -67,9 +66,16 @@
                 <a class="navbar-item">
                     <h1 class="is-size-4 has-text-weight-semibold">{{shopName}}</h1>
                 </a>
-            </div>
 
+            </div>
+            
             <div class="navbar-menu">
+                <div class="navbar-start">
+                    <a href="../ex1/index.html" class="navbar-item">Basic of VueJS 2</a>
+                    <a href="./index.html" class="navbar-item">Shop from Vue</a>
+                    <a href="./checkout.html" class="navbar-item">Checkout</a>
+                </div>
+
                 <div class="navbar-end">
                     <a class="navbar-item my-2" @click="show_modal = !show_modal">
                         <span>เปิดโจทย์</span>
