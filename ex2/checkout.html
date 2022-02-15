@@ -33,7 +33,10 @@
                     <p class="my-4"><b>ข้อ 2 </b>ผูก v-model ให้กับ input แต่ละตัวใน Form (สามารถกำหนดชื่อตัวแปรเองได้เลย)
                     </p>
                     <hr>
-                    <p class="my-4"><b>ข้อ 3 </b> ลองกดปุ่ม Confirm Order จะมี modal แสดงขึ้นมา
+                    <p class="my-4"><b>ข้อ 3 </b>ให้สร้าง <b>Watchers</b> ในการดักจับการเปลี่ยนแปลงของค่าของตัว Address ให้เมื่อมีการพิมพ์ข้อความหรือเพิ่มข้อมูลใหม่ให้ทำการแสดงข้อความด้านใต้ "กำลังพิมพ์" โดยมีดีเลย์ 2 วินาทีหลังจากค่าเปลี่ยนแปลง
+                    </p>
+                    <hr>
+                    <p class="my-4"><b>ข้อ 4 </b> ลองกดปุ่ม Confirm Order จะมี modal แสดงขึ้นมา
                         ในนั้นจะมีตัวอย่างตารางให้ดู ให้นักศึกษาสร้างตารางตามตัวอย่าง ใน
                         <code>&lt;table id="order-table"&gt;</code>
                         โดยตารางที่นักศึกษาสร้างจะอยู่ด้านล่างต่อจากรูปตัวอย่าง (ไม่ต้องลบรูปออก)
@@ -142,42 +145,9 @@
             <h1 class="is-size-4">Address Info</h1><br>
             <div class="columns">
                 <div class="column">
-                    <label class="label">House No.</label>
-                    <div class="control">
-                        <input class="input" type="text">
-                    </div>
-                </div>
-                <div class="column">
-                    <label class="label">Street</label>
-                    <div class="control">
-                        <input class="input" type="text">
-                    </div>
-                </div>
-                <div class="column">
-                    <label class="label">Sub-district</label>
-                    <div class="control">
-                        <input class="input" type="text">
-                    </div>
-                </div>
-            </div>
-            <div class="columns">
-                <div class="column">
-                    <label class="label">District</label>
-                    <div class="control">
-                        <input class="input" type="text">
-                    </div>
-                </div>
-                <div class="column">
-                    <label class="label">Province</label>
-                    <div class="control">
-                        <input class="input" type="text">
-                    </div>
-                </div>
-                <div class="column">
-                    <label class="label">Postal Code</label>
-                    <div class="control">
-                        <input class="input" type="number">
-                    </div>
+                    <label class="label">ที่อยู่</label>
+                    <textarea class="textarea" placeholder="e.g. บ้านเลขที่ 123 ลาดกระบัง ...."></textarea>
+                    <p>Typing</p>
                 </div>
             </div>
 
@@ -193,7 +163,7 @@
             <div class="modal-card" style="max-width: 960px;width: 90%;">
                 <section class="modal-card-body">
                     ตัวอย่าง order
-                    <img src="./table example.png">
+                    <img src="./Table example.png">
                     <hr>
                     Order Table ของนักศึกษา
                     <table id='order-table' style="width: 100%;" class="table is-bordered">

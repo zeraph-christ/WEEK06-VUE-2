@@ -186,60 +186,45 @@
 
             <hr>
 
-            <p class="my-4"><b>ข้อ 5 </b> ในการเปลี่ยนแปลงข้อมูลที่สำคัญ จะต้องมีการเก็บ log
-                บันทึกการเปลี่ยนแปลงของข้อมูล เพื่อให้สามารถตรวจสอบการเปลี่ยนแปลงย้อนหลังได้
-                โดยในข้อนี้จะให้ใช้ <b>watch</b> ในการดักจับการเปลี่ยนแปลงข้อมูลของตัวแปร <code>day_select</code>
-                โดยค่าของ
-                <code>day_select</code> จะเปลี่ยนแปลงเมื่อเลือก radio อันอื่น<br>
-                โดยเมื่อค่าของ <code>day_select</code> เปลี่ยนแปลง
-                จะมีการบันทึก log ดังนี้
-            <ul style="list-style-type:lower-alpha;margin-left: 2rem;margin-bottom: 1.25rem;">
-                <li>บันทึกเวลาที่เปลี่ยนแปลงข้อมูล โดยใช้ฟังก์ชัน <code>Date()</code> และ
-                    <b class="has-text-danger">จัด Formatให้เหมือนในตัวอย่าง</b>
-                    <a target="blank" href="https://www.w3schools.com/js/js_dates.asp">ดูการใช้งาน Date() เพิ่มเติม</a>
-                </li>
-                <li>ค่าของ Value ที่เปลี่ยน โดยมี "-->" คั่นอยู่ระหว่างค่าเก่าและค่าใหม่ โดยในตัวอย่างคือเปลี่ยนจาก 0
-                    เป็น 1</li>
-                <li>ค่าของ Title ที่เปลี่ยน โดยมี "-->" คั่นอยู่ระหว่างค่าเก่าและค่าใหม่ โดยในตัวอย่างคือเปลี่ยนจาก
-                    Sunday
-                    เป็น Monday</li>
-            </ul>
-            ข้อมูล log ดังกล่าวจะถูกเก็บเป็น Object ไว้ใน Array ชื่อว่า
-            <code>logs</code> และนักศึกษาจะต้อง loop log ทั้งหมดให้แสดงใน table ที่ให้มาเป็นตัวอย่าง
-
-            </p>
-            <p class="my-4 has-background-info-light p-3">
-                <b>วิธีทำ:</b> เปิดไฟล์นี้ในโปรแกรม vscode และแก้ไข code ใน
-                <code>&lt;div id="ex5"&gt;</code>
-            </p>
+            <p class="my-4"><b>ข้อ 5 </b> ให้สร้าง <b>Watchers</b> ในการดักจับการเปลี่ยนแปลงของค่า 
+                <code>averageScore</code> และทำการบันทึกการเปลี่ยนแปลงเข้าไปในตัวแปร <code>logs</code> 
+                ในรูปแบบของ <b>Object</b> และนำข้อมูลใน <code>logs</code> มาแสดงผลในรูปของตาราง ตามตัวอย่างด้านล่าง
+                โดยมีเงื่อนไขในการแสดงผล ดังนี้
+                <ul style="list-style-type:lower-alpha;margin-left: 2rem;margin-bottom: 1.25rem;">
+                    <li>ให้ตารางการแสดงผลมีทั้งหมด 3 Rows ได้แก่ <b>Average Score Change, From และ Different From Old Value</b></li>
+                    <li>ถ้าค่า <code>averageScore</code> มีค่าเพิ่มขึ้น ให้แสดงผลโดยใช้ตัวอักษรสีเขียว</li>
+                    <li>ถ้าค่า <code>averageScore</code> มีค่าลดลง ให้แสดงผลโดยใช้ตัวอักษรสีแดง</li>
+                </ul>
+                </p>
+                <p class="my-4 has-background-info-light p-3">
+                    <b>วิธีทำ:</b> เปิดไฟล์นี้ในโปรแกรม vscode และแก้ไข code ใน
+                    <code>&lt;div id="ex5"&gt;</code>
+                </p>
 
             <!-- ข้อ 5 --------------------------------------------- -->
             <div id="ex5">
-                <div class="control">
-                    <label v-for='day in day_data' class="radio">
-                        <input type="radio" name="answer" v-model="day_select" :value="day.value">
-                        {{day.title}}
-                    </label>
-                </div>
 
                 <h1 class="is-size-4 my-5">Simple Log Table</h1>
 
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>Time</th>
-                            <th>Value Change</th>
-                            <th>Title Change</th>
+                            <th>Average Score Change</th>
+                            <th>From</th>
+                            <th>Different From Old Value</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- ตัวอย่างข้อมูล------------ -->
                         <tr>
-                            <td>04 Feb 2021 00:48:21</td>
-                            <td>0 --> 1</td>
-                            <td>Sunday --> Monday</td>
+                            <td>50</td>
+                            <td>48.5</td>
+                            <td style="color : red">- 1.5</td>
                         </tr>
-
+                        <tr>
+                            <td>48.5</td>
+                            <td>55</td>
+                            <td style="color : green">+ 6.5</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -255,16 +240,6 @@
             data: {
                 message: 'Hello Vue!',
                 students: [],
-                day_data: [
-                    { title: 'Sunday', value: '0' },
-                    { title: 'Monday', value: '1' },
-                    { title: 'Tuesday', value: '2' },
-                    { title: 'Wendesday', value: '3' },
-                    { title: 'Thursday', value: '4' },
-                    { title: 'Friday', value: '5' },
-                    { title: 'Saturday', value: '6' },
-                ],
-                day_select: 0,
                 logs: []
             },
 
