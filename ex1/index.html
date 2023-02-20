@@ -11,7 +11,7 @@
 <body>
     <div id='app'>
         <div class="navbar is-light p-5">
-            <b class="mr-4">WEEK 5</b>
+            <b class="mr-4">WEEK 6</b>
             <a href="./index.html" class="mr-4">Basic of VueJS 2</a>
             <a href="../ex2/index.html" class="mr-4">Shop from Vue</a>
             <a href="../ex2/checkout.html">Checkout</a>
@@ -228,11 +228,98 @@
                     </tbody>
                 </table>
             </div>
+
+            <hr>
+            <!-- ข้อ 6 --------------------------------------------- -->
+            <p><b>ข้อ 6</b> ให้ใช้ Watchers สำหรับการค้นหา <b>ชื่อ</b> แล้วแสดงผลข้อมูลตามที่ค้นหามาได้</p>
+            <p class="my-4 has-background-info-light p-3">
+                <b>ตัวช่วย</b>
+                <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes">💡Array.prototype.includes()</a>
+            </p>
+            <div id="ex6">
+                <div class="field">
+                    <div class="columns">
+                    <div class="column">
+                    <p class="control has-icons-left">
+                            <input class="input" type="text" placeholder="Name Search by Watchers">
+                      <span class="icon is-small is-left">
+                        <i class="fa fa-search"></i>
+                      </span>
+                    </p>
+                    </div>
+                </div>
+                  </div>
+                
+                <table class="table is-bordered is-striped is-hoverable is-fullwidth">
+                    <thead>
+                        <tr>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>E-mail</th>
+                            <th>Gender</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="(item, index) in dummyData"  :key="index">
+                            <td>{{item.first_name}}</td>
+                            <td>{{item.last_name}}</td>
+                            <td>{{item.email}}</td>
+                            <td>{{item.gender}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <hr>
+
+            <!-- ข้อ 7 --------------------------------------------- -->
+            <div class="ex7">
+                <b>ข้อ 7</b>
+                <p>ให้ใช้ Computed สำหรับการค้นหา <b>เพศ</b> แล้วแสดงผลข้อมูลตามที่ค้นหามาได้</p>
+                <div style="display: flex; justify-content: flex-end;" class="my-2">
+                    <div class="control has-icons-left">
+                        <div class="select">
+                          <select>
+                            <option></option>
+                            <option>Male</option>
+                            <option>Female</option>
+                            <option>Agender</option>
+                            <option>Bigender</option>
+                            <option>Genderfluid</option>
+                            <option>Non-binary</option>
+                          </select>
+                        </div>
+                        <span class="icon is-left">
+                            <i class="fa fa-transgender-alt"></i>
+                        </span>
+                    </div>
+                </div>
+                
+                <table class="table is-bordered is-striped is-hoverable is-fullwidth">
+                    <thead>
+                        <tr>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>E-mail</th>
+                            <th>Gender</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="(item, index) in dummyData"  :key="index">
+                            <td>{{item.first_name}}</td>
+                            <td>{{item.last_name}}</td>
+                            <td>{{item.email}}</td>
+                            <td>{{item.gender}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 
 
     <!-- vue script ------------------------------------------- -->
+    <script src="./data.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script>
         var app = new Vue({
@@ -240,9 +327,9 @@
             data: {
                 message: 'Hello Vue!',
                 students: [],
-                logs: []
+                logs: [],
+                dummyData: dummyData,
             },
-
         })
     </script>
 
